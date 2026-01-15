@@ -1,463 +1,494 @@
 @extends('layouts.app')
 
-@section('title', 'ZC 4u Fashion - Boutique Mode & Vêtements Tendance')
+@section('title', 'ClothesZC - Votre Boutique de Mode')
 
 @section('content')
-<!-- Hero Section Fashion -->
-<section class="hero fashion-hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1 class="hero-title"><i class="fas fa-tshirt"></i> ZC 4u Fashion</h1>
-            <p class="hero-subtitle">Votre Destination Mode & Vêtements</p>
-            <p class="hero-description">Découvrez notre collection exclusive de vêtements tendance pour femme, homme et enfant. Style, qualité et élégance à prix accessible.</p>
-            <div class="hero-buttons">
-                <a href="{{ route('produits.index') }}" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Découvrir nos Collections</a>
-                <a href="{{ route('produits.category', 'femme') }}" class="btn btn-outline"><i class="fas fa-female"></i> Mode Femme</a>
-            </div>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <span class="hero-tag">Nouvelle Collection 2024</span>
+        <h1>Exprimez Votre<br><span>Style Unique</span></h1>
+        <p>Découvrez notre sélection de vêtements tendance pour affirmer votre personnalité</p>
+        <div class="hero-buttons">
+            <a href="{{ route('produits.index') }}" class="btn btn-primary">Découvrir la Collection</a>
+            <a href="{{ route('about') }}" class="btn btn-outline btn-outline-white">En Savoir Plus</a>
         </div>
+    </div>
+    <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
     </div>
 </section>
 
-<!-- Categories Section -->
-<section class="categories-section">
+<!-- Features Section -->
+<section class="features">
     <div class="container">
-        <h2 class="section-title">Nos Collections de Vêtements</h2>
-        <p class="section-subtitle">Explorez nos catégories et trouvez votre style</p>
-        <div class="categories-grid">
-            <a href="{{ route('produits.category', 'femme') }}" class="category-card femme-card">
-                <div class="category-icon"><i class="fas fa-female"></i></div>
-                <h3>Mode Femme</h3>
-                <p>Robes, tops, pantalons & plus</p>
-                <span class="category-count">Nouvelle collection</span>
-            </a>
-            
-            <a href="{{ route('produits.category', 'homme') }}" class="category-card homme-card">
-                <div class="category-icon"><i class="fas fa-male"></i></div>
-                <h3>Mode Homme</h3>
-                <p>Chemises, jeans, vestes & plus</p>
-                <span class="category-count">Tendances actuelles</span>
-            </a>
-            
-            <a href="{{ route('produits.category', 'enfant') }}" class="category-card enfant-card">
-                <div class="category-icon"><i class="fas fa-child"></i></div>
-                <h3>Mode Enfant</h3>
-                <p>Vêtements confortables & colorés</p>
-                <span class="category-count">Collection kids</span>
-            </a>
-            
-            <a href="{{ route('produits.category', 'chaussures') }}" class="category-card chaussures-card">
-                <div class="category-icon"><i class="fas fa-shoe-prints"></i></div>
-                <h3>Chaussures</h3>
-                <p>Sneakers, boots, sandales</p>
-                <span class="category-count">Toutes pointures</span>
-            </a>
-            
-            <a href="{{ route('produits.category', 'accessoires') }}" class="category-card accessoires-card">
-                <div class="category-icon"><i class="fas fa-gem"></i></div>
-                <h3>Accessoires</h3>
-                <p>Sacs, bijoux, montres</p>
-                <span class="category-count">Compléments mode</span>
-            </a>
-            
-            <a href="{{ route('produits.category', 'sport') }}" class="category-card sport-card">
-                <div class="category-icon"><i class="fas fa-running"></i></div>
-                <h3>Sportswear</h3>
-                <p>Vêtements de sport tendance</p>
-                <span class="category-count">Active wear</span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Featured Products -->
-<section class="featured-section">
-    <div class="container">
-        <h2 class="section-title"><i class="fas fa-star"></i> Nos Coups de Cœur</h2>
-        <p class="section-subtitle">Sélection de nos meilleurs vêtements</p>
-        <div class="featured-grid">
-            <div class="featured-product">
-                <div class="product-badge new">Nouveau</div>
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1200&q=80&fit=crop" alt="Robe d'Été Florale" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px;">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
                 </div>
-                <h4>Robe d'Été Florale</h4>
-                <p class="product-price">
-                    <span class="current-price">79,99 €</span>
-                </p>
-                <a href="{{ route('produits.show', 2) }}" class="btn btn-outline">Voir le produit</a>
+                <h3>Livraison Gratuite</h3>
+                <p>Dès 50€ d'achat</p>
             </div>
-            
-            <div class="featured-product">
-                <div class="product-badge sale">-25%</div>
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&q=80&fit=crop" alt="T-Shirt Premium" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px;">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-undo-alt"></i>
                 </div>
-                <h4>T-Shirt Premium Homme</h4>
-                <p class="product-price">
-                    <span class="current-price">29,99 €</span>
-                    <span class="old-price">39,99 €</span>
-                </p>
-                <a href="{{ route('produits.show', 1) }}" class="btn btn-outline">Voir le produit</a>
+                <h3>Retours Gratuits</h3>
+                <p>Sous 30 jours</p>
             </div>
-            
-            <div class="featured-product">
-                <div class="product-badge sale">Promo</div>
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=80&fit=crop" alt="Sneakers Urban" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px;">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
-                <h4>Sneakers Urban Tendance</h4>
-                <p class="product-price">
-                    <span class="current-price">89,99 €</span>
-                    <span class="old-price">109,99 €</span>
-                </p>
-                <a href="{{ route('produits.show', 6) }}" class="btn btn-outline">Voir le produit</a>
+                <h3>Paiement Sécurisé</h3>
+                <p>100% protégé</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Support 24/7</h3>
+                <p>À votre écoute</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Values Section -->
-<section class="values-section">
+<!-- Products Section -->
+<section class="section">
     <div class="container">
-        <h2 class="section-title">Pourquoi choisir ZC 4u Fashion ?</h2>
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-award"></i></div>
-                <h4>Qualité Premium</h4>
-                <p>Vêtements sélectionnés avec soin pour un confort et une durabilité exceptionnels.</p>
+        <div class="section-header">
+            <span class="section-tag">Notre Collection</span>
+            <h2 class="section-title">Produits Populaires</h2>
+            <p class="section-subtitle">Une sélection soigneusement choisie pour vous</p>
+        </div>
+
+        <div class="products-grid">
+            @foreach($featuredProducts as $product)
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}">
+                    <div class="product-overlay"></div>
+                    @if($product['new'])
+                    <span class="product-badge badge-new">Nouveau</span>
+                    @elseif($product['sale'])
+                    <span class="product-badge badge-sale">Promo</span>
+                    @endif
+                    <div class="product-actions">
+                        <button class="action-btn" title="Aperçu"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn" title="Ajouter au panier"><i class="fas fa-shopping-bag"></i></button>
+                        <button class="action-btn" title="Favoris"><i class="fas fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">{{ ucfirst($product['category']) }}</span>
+                    <h3 class="product-name">
+                        <a href="{{ route('produits.show', $product['id']) }}">{{ $product['name'] }}</a>
+                    </h3>
+                    <div class="product-price">
+                        <span class="price-current">{{ number_format($product['price'], 2) }}€</span>
+                        @if($product['old_price'])
+                        <span class="price-old">{{ number_format($product['old_price'], 2) }}€</span>
+                        @endif
+                    </div>
+                    <div class="product-rating">
+                        @for($i = 1; $i <= 5; $i++)
+                            <i class="fas fa-star{{ $i <= floor($product['rating']) ? '' : '-half-alt' }}"></i>
+                        @endfor
+                        <span>({{ $product['reviews'] }})</span>
+                    </div>
+                </div>
+            </article>
+            @endforeach
+        </div>
+
+        <div class="section-cta">
+            <a href="{{ route('produits.index') }}" class="btn btn-primary">Voir Tous les Produits</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Preview -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-images">
+                <div class="about-img-main">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" alt="Boutique">
+                </div>
+                <div class="about-img-secondary">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&q=80" alt="Mode">
+                </div>
             </div>
-            
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-tags"></i></div>
-                <h4>Prix Accessibles</h4>
-                <p>Mode tendance à prix justes, sans compromis sur la qualité des tissus.</p>
-            </div>
-            
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-truck"></i></div>
-                <h4>Livraison Rapide</h4>
-                <p>Expédition sous 24h, livraison gratuite dès 75€ d'achat de vêtements.</p>
-            </div>
-            
-            <div class="value-card">
-                <div class="value-icon"><i class="fas fa-leaf"></i></div>
-                <h4>Mode Responsable</h4>
-                <p>Démarche éco-responsable avec des tissus durables et éthiques.</p>
+            <div class="about-content">
+                <span class="section-tag">Notre Histoire</span>
+                <h2>À Propos de ClothesZC</h2>
+                <p>Chez ClothesZC, nous croyons que la mode est une forme d'expression personnelle. Notre mission est de vous offrir des vêtements de qualité qui reflètent votre style unique.</p>
+                <p>Depuis notre création, nous sélectionnons avec soin chaque pièce de notre collection pour garantir style, confort et durabilité.</p>
+                <ul class="about-features">
+                    <li><i class="fas fa-check-circle"></i> Qualité Premium</li>
+                    <li><i class="fas fa-check-circle"></i> Style Tendance</li>
+                    <li><i class="fas fa-check-circle"></i> Prix Accessibles</li>
+                </ul>
+                <a href="{{ route('about') }}" class="btn btn-primary">En Savoir Plus</a>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Newsletter -->
+<section class="newsletter">
+    <div class="container">
+        <div class="newsletter-content">
+            <span class="section-tag">Newsletter</span>
+            <h2>Restez Informé</h2>
+            <p>Inscrivez-vous pour recevoir nos dernières offres et nouveautés</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Votre adresse email" required>
+                <button type="submit" class="btn btn-primary">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+</section>
+@endsection
+
+@section('styles')
 <style>
-/* Fashion-specific styles */
-.fashion-hero {
-    background: var(--fashion-gradient);
+/* ===== HERO ===== */
+.hero {
     position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    padding: 6rem 0;
 }
 
-.fashion-hero::before {
-    content: '';
+.hero-bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="fashion-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1" fill="white" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23fashion-pattern)"/></svg>') repeat;
-    pointer-events: none;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
+    text-align: center;
+    color: var(--white);
+    max-width: 800px;
+    padding: 0 24px;
 }
 
-.hero-title {
+.hero-tag {
+    display: inline-block;
+    background: rgba(233, 69, 96, 0.2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 25px;
 }
 
-.hero-title i {
-    color: var(--secondary-color);
+.hero-content h1 span {
+    color: var(--accent);
 }
 
-.hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
-
-.hero-description {
-    max-width: 600px;
-    margin: 0 auto 2rem;
+.hero-content p {
+    font-size: 1.2rem;
     opacity: 0.9;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.categories-section {
-    padding: 5rem 0;
-    background: var(--cream-color);
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--text-light);
-    margin-top: -1.5rem;
-    margin-bottom: 2rem;
-}
-
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.category-card {
-    background: var(--white);
-    padding: 2.5rem 2rem;
-    border-radius: 15px;
-    text-align: center;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-    transition: all 0.4s ease;
-    border: 2px solid transparent;
-}
-
-.category-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-    border-color: var(--secondary-color);
-}
-
-.category-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    display: block;
-    color: var(--secondary-color);
-}
-
-.category-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
-
-.category-card p {
-    color: var(--text-light);
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-}
-
-.category-count {
-    display: inline-block;
-    background: var(--primary-color);
+.btn-outline-white {
+    border-color: var(--white);
     color: var(--white);
-    padding: 0.4rem 1rem;
-    border-radius: 25px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
 }
 
-.femme-card:hover .category-icon { color: #e84393; }
-.homme-card:hover .category-icon { color: #1a1a1a; }
-.enfant-card:hover .category-icon { color: #ff6b6b; }
-.chaussures-card:hover .category-icon { color: #8b7355; }
-.accessoires-card:hover .category-icon { color: #d4af37; }
-.sport-card:hover .category-icon { color: #45b7d1; }
-
-.femme-card .category-count { background: #e84393; }
-.homme-card .category-count { background: #1a1a1a; }
-.enfant-card .category-count { background: #ff6b6b; }
-.chaussures-card .category-count { background: #8b7355; }
-.accessoires-card .category-count { background: #d4af37; color: #1a1a1a; }
-.sport-card .category-count { background: #45b7d1; }
-
-.featured-section {
-    padding: 5rem 0;
+.btn-outline-white:hover {
     background: var(--white);
+    color: var(--primary);
 }
 
-.featured-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.featured-product {
-    background: var(--cream-color);
-    border-radius: 20px;
-    padding: 1.5rem;
-    text-align: center;
-    position: relative;
-    transition: all 0.4s ease;
-    border: 2px solid transparent;
-    overflow: hidden;
-}
-
-.featured-product:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-    border-color: var(--secondary-color);
-}
-
-.product-badge {
+.hero-scroll {
     position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
-    padding: 0.5rem 1.2rem;
-    border-radius: 25px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--white);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    z-index: 2;
-}
-
-.product-badge.new { background: var(--secondary-color); color: var(--primary-color); }
-.product-badge.sale { background: #e53935; }
-
-.product-image {
-    margin: 1rem 0;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.product-image img {
-    transition: transform 0.5s ease;
-}
-
-.featured-product:hover .product-image img {
-    transform: scale(1.08);
-}
-
-.featured-product h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: var(--primary-color);
-}
-
-.product-price {
-    margin-bottom: 1.5rem;
-}
-
-.current-price {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.old-price {
-    text-decoration: line-through;
-    color: var(--text-light);
-    margin-left: 0.5rem;
-    font-size: 1rem;
-}
-
-.values-section {
-    padding: 5rem 0;
-    background: var(--primary-color);
-    color: var(--white);
-}
-
-.values-section .section-title {
-    color: var(--white);
-}
-
-.values-section .section-title::after {
-    background: var(--secondary-color);
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.value-card {
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    padding: 2rem;
-    border-radius: 15px;
-    background: rgba(255,255,255,0.05);
-    transition: all 0.3s ease;
+    color: var(--white);
+    opacity: 0.7;
 }
 
-.value-card:hover {
-    background: rgba(255,255,255,0.1);
+.hero-scroll span {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--white), transparent);
+    margin: 10px auto 0;
+    animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; height: 60px; }
+    50% { opacity: 1; height: 80px; }
+}
+
+/* ===== FEATURES ===== */
+.features {
+    background: var(--light);
+    padding: 50px 0;
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
     transform: translateY(-5px);
 }
 
-.value-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    display: block;
-    color: var(--secondary-color);
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.value-card h4 {
+.feature-icon i {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.feature-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+/* ===== SECTION CTA ===== */
+.section-cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+    padding: 100px 0;
+    background: var(--light);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-images {
+    position: relative;
+}
+
+.about-img-main {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-hover);
+}
+
+.about-img-main img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.about-img-secondary {
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-hover);
+    border: 5px solid var(--white);
+}
+
+.about-img-secondary img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.about-content h2 {
     font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 15px 0 25px;
+}
+
+.about-content p {
+    color: var(--gray);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.about-features {
+    margin: 30px 0;
+}
+
+.about-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.about-features i {
+    color: var(--accent);
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+}
+
+/* ===== NEWSLETTER ===== */
+.newsletter {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: 100px 0;
+}
+
+.newsletter-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
     color: var(--white);
 }
 
-.value-card p {
-    color: rgba(255,255,255,0.8);
-    line-height: 1.7;
-    font-size: 0.95rem;
+.newsletter-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin: 15px 0;
 }
 
-.btn-outline {
-    background: transparent;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
+.newsletter-content p {
+    opacity: 0.9;
+    margin-bottom: 30px;
 }
 
-.btn-outline:hover {
-    background: var(--primary-color);
-    color: var(--white);
+.newsletter-form {
+    display: flex;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.2rem;
+.newsletter-form input {
+    flex: 1;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3rem;
     }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-    
-    .categories-grid,
-    .featured-grid,
-    .values-grid {
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .about-img-secondary {
+        right: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
-        gap: 1rem;
+        align-items: center;
     }
-    
-    .hero-buttons .btn {
-        width: 100%;
-        text-align: center;
+
+    .newsletter-form {
+        flex-direction: column;
     }
 }
 </style>

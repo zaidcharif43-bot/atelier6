@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\ProductController;
 
 class PageController extends Controller
 {
@@ -11,7 +12,11 @@ class PageController extends Controller
      */
     public function home()
     {
-        return view('pages.home');
+        // Récupérer les produits vedettes (8 premiers)
+        $productController = new ProductController();
+        $featuredProducts = $productController->getFeaturedProducts();
+        
+        return view('pages.home', compact('featuredProducts'));
     }
 
     /**

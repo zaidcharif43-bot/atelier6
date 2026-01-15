@@ -1,167 +1,556 @@
 @extends('layouts.app')
 
-@section('title', 'À propos - ZC 4u')
+@section('title', 'À Propos - ClothesZC')
 
 @section('content')
-    <!-- Hero About -->
-    <section class="hero" style="padding: 3rem 0;">
-        <div class="container">
-            <h1>À Propos de ZC 4u</h1>
-            <p>Votre boutique en ligne de confiance, au service de vos besoins depuis 2020.</p>
-        </div>
-    </section>
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="{{ route('home') }}">Accueil</a>
+            <span>/</span>
+            <span>À Propos</span>
+        </nav>
+        <h1>Notre Histoire</h1>
+        <p>Découvrez l'univers ClothesZC</p>
+    </div>
+</section>
 
-    <!-- Notre Histoire -->
-    <section class="section">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 3rem;">
-                <div>
-                    <h2 style="color: var(--primary-color); font-size: 2.5rem; margin-bottom: 1.5rem;">Notre Histoire</h2>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        <strong>ZC 4u</strong> a été fondée en 2020 avec une vision simple : rendre le shopping en ligne 
-                        accessible, fiable et agréable pour tous. Née de l'expérience de professionnels du commerce électronique, 
-                        notre boutique s'est rapidement imposée comme une référence.
-                    </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Aujourd'hui, nous proposons une large gamme de produits soigneusement sélectionnés, 
-                        des prix compétitifs et un service client exceptionnel. Notre objectif est de vous offrir 
-                        une expérience d'achat en ligne simple, sécurisée et satisfaisante.
-                    </p>
+<!-- Story Section -->
+<section class="section">
+    <div class="container">
+        <div class="story-grid">
+            <div class="story-images">
+                <div class="story-img-main">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" alt="Notre Boutique">
                 </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 8rem; color: var(--primary-color); margin-bottom: 1rem;">🛍️</div>
-                    <div style="color: var(--text-light); font-style: italic;">
-                        "Plus de 50 000 commandes livrées avec succès"
+                <div class="story-img-secondary">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&q=80" alt="Mode">
+                </div>
+                <div class="story-badge">
+                    <span class="badge-number">2024</span>
+                    <span class="badge-text">Depuis</span>
+                </div>
+            </div>
+            <div class="story-content">
+                <span class="section-tag">Notre Histoire</span>
+                <h2>De la Passion à la Réalité</h2>
+                <p><strong>ClothesZC</strong> est née d'une passion profonde pour la mode et d'une vision simple : rendre les vêtements de qualité accessibles à tous.</p>
+                <p>Fondée en 2024, notre boutique en ligne s'est donné pour mission de proposer une sélection soigneusement choisie de vêtements tendance, alliant style, confort et qualité.</p>
+                <p>Nous croyons fermement que le style ne devrait jamais être compromis par le budget. C'est pourquoi nous travaillons directement avec des fabricants de confiance pour vous offrir le meilleur rapport qualité-prix.</p>
+                <div class="story-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Clients Satisfaits</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Produits</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">Avis Positifs</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Notre Mission -->
-    <section class="section" style="background: var(--light-color);">
-        <div class="container">
-            <h2 class="section-title">Notre Mission</h2>
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <p style="font-size: 1.3rem; line-height: 1.8; color: var(--neutral-color); margin-bottom: 2rem;">
-                    <em>"Offrir à nos clients une expérience d'achat en ligne exceptionnelle, 
-                    avec des produits de qualité, des prix justes et un service client personnalisé, 
-                    accessible à tous et disponible 24h/24."</em>
-                </p>
-                <div style="width: 100px; height: 3px; background: var(--secondary-color); margin: 0 auto;"></div>
+<!-- Mission Section -->
+<section class="mission-section">
+    <div class="container">
+        <div class="mission-content">
+            <span class="section-tag section-tag-light">Notre Mission</span>
+            <h2>"Offrir à nos clients des vêtements de qualité, tendance et accessibles, tout en garantissant une expérience d'achat simple, sécurisée et agréable."</h2>
+            <div class="mission-icon">
+                <i class="fas fa-quote-right"></i>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Nos Valeurs -->
-    <section class="section">
-        <div class="container">
+<!-- Values Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Ce Qui Nous Guide</span>
             <h2 class="section-title">Nos Valeurs</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon" style="color: var(--accent-color);">💯</div>
-                    <h3>Qualité</h3>
-                    <p>Nous sélectionnons rigoureusement nos produits et partenaires pour vous garantir la meilleure qualité au meilleur prix.</p>
+            <p class="section-subtitle">Les principes qui définissent ClothesZC</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-gem"></i>
                 </div>
-                <div class="card">
-                    <div class="card-icon" style="color: var(--secondary-color);">🎯</div>
-                    <h3>Service Client</h3>
-                    <p>Notre équipe dédiée est à votre écoute 7j/7 pour vous accompagner et répondre à toutes vos questions.</p>
+                <h3>Qualité</h3>
+                <p>Nous sélectionnons chaque produit avec soin pour vous garantir une qualité irréprochable.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
                 </div>
-                <div class="card">
-                    <div class="card-icon" style="color: var(--primary-color);">🔒</div>
-                    <h3>Sécurité</h3>
-                    <p>Paiements sécurisés, protection des données personnelles et transactions cryptées pour votre tranquillité.</p>
+                <h3>Passion</h3>
+                <p>La mode est notre passion. Nous suivons les dernières tendances pour vous proposer le meilleur.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
                 </div>
-                <div class="card">
-                    <div class="card-icon" style="color: var(--secondary-color);">🚀</div>
-                    <h3>Innovation</h3>
-                    <p>Nous améliorons constamment notre plateforme et nos services pour vous offrir la meilleure expérience possible.</p>
+                <h3>Service Client</h3>
+                <p>Votre satisfaction est notre priorité. Notre équipe est là pour vous accompagner.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Responsabilité</h3>
+                <p>Nous nous engageons pour une mode plus responsable et durable.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Notre Famille</span>
+            <h2 class="section-title">L'Équipe ClothesZC</h2>
+            <p class="section-subtitle">Des passionnés à votre service</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Zakaria C.">
+                    <div class="member-overlay">
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3>Zakaria C.</h3>
+                    <span>Fondateur & CEO</span>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Sarah M.">
+                    <div class="member-overlay">
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3>Sarah M.</h3>
+                    <span>Directrice Artistique</span>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Ahmed B.">
+                    <div class="member-overlay">
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3>Ahmed B.</h3>
+                    <span>Service Client</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Notre Équipe -->
-    <section class="section" style="background: var(--light-color);">
-        <div class="container">
-            <h2 class="section-title">L'Équipe ZC 4u</h2>
-            <div class="card-grid" style="max-width: 900px; margin: 0 auto;">
-                <div class="card">
-                    <div style="width: 100px; height: 100px; background: var(--primary-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">👨‍💼</div>
-                    <h3>Zaid Chaibi</h3>
-                    <p style="color: var(--secondary-color); font-weight: 600; margin-bottom: 0.5rem;">Fondateur & CEO</p>
-                    <p>Entrepreneur passionné par l'e-commerce et l'innovation digitale, expert en expérience client.</p>
-                </div>
-                <div class="card">
-                    <div style="width: 100px; height: 100px; background: var(--accent-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">👩‍💼</div>
-                    <h3>Sarah Martin</h3>
-                    <p style="color: var(--secondary-color); font-weight: 600; margin-bottom: 0.5rem;">Directrice Opérationnelle</p>
-                    <p>Spécialiste en logistique et gestion de stock, garantit la qualité de nos services.</p>
-                </div>
-                <div class="card">
-                    <div style="width: 100px; height: 100px; background: var(--secondary-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">👨‍💻</div>
-                    <h3>Alex Dubois</h3>
-                    <p style="color: var(--secondary-color); font-weight: 600; margin-bottom: 0.5rem;">Responsable Technique</p>
-                    <p>Développeur full-stack, assure la sécurité et les performances de notre plateforme.</p>
-                </div>
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Prêt à découvrir notre collection ?</h2>
+            <p>Explorez nos produits et trouvez votre style unique</p>
+            <div class="cta-buttons">
+                <a href="{{ route('produits.index') }}" class="btn btn-primary">Voir nos produits</a>
+                <a href="{{ route('contact') }}" class="btn btn-outline btn-outline-white">Nous contacter</a>
             </div>
         </div>
-    </section>
-
-    <!-- Nos Engagements -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Nos Engagements</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                <div style="text-align: center; padding: 1.5rem;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Sécurité des Paiements</h3>
-                    <p>Transactions 100% sécurisées avec cryptage SSL et protection anti-fraude avancée.</p>
-                </div>
-                <div style="text-align: center; padding: 1.5rem;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔄</div>
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Retours Gratuits</h3>
-                    <p>30 jours pour changer d'avis avec retours gratuits et remboursement intégral garanti.</p>
-                </div>
-                <div style="text-align: center; padding: 1.5rem;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎆</div>
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Promotions Exclusives</h3>
-                    <p>Offres spéciales régulières, codes promo et programme de fidélité pour nos meilleurs clients.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="section" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%); color: white;">
-        <div class="container" style="text-align: center;">
-            <h2 style="color: white; margin-bottom: 1rem;">Rejoignez la Communauté ZC 4u</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
-                Plus de 25 000 clients satisfaits nous font déjà confiance. Et vous ?
-            </p>
-            <a href="{{ route('contact') }}" class="btn" style="background: var(--secondary-color);">
-                Contactez-nous
-            </a>
-        </div>
-    </section>
+    </div>
+</section>
 @endsection
 
 @section('styles')
 <style>
-    @media (max-width: 768px) {
-        .container > div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-            gap: 2rem !important;
-        }
-        
-        .hero h1 {
-            font-size: 2rem;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-        }
+/* ===== STORY SECTION ===== */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.story-images {
+    position: relative;
+}
+
+.story-img-main {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-hover);
+}
+
+.story-img-main img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.story-img-secondary {
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-hover);
+    border: 5px solid var(--white);
+}
+
+.story-img-secondary img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.story-badge {
+    position: absolute;
+    top: 30px;
+    left: -30px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    color: var(--white);
+    box-shadow: var(--shadow-hover);
+}
+
+.badge-number {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.badge-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.story-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 15px 0 25px;
+}
+
+.story-content p {
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.story-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px solid var(--light);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.stat-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* ===== MISSION SECTION ===== */
+.mission-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: 100px 0;
+}
+
+.mission-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--white);
+    position: relative;
+}
+
+.section-tag-light {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3);
+    color: var(--white);
+}
+
+.mission-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.mission-icon {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mission-icon i {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+/* ===== VALUES GRID ===== */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.value-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.value-icon i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.value-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 15px;
+}
+
+.value-card p {
+    color: var(--gray);
+    line-height: 1.7;
+}
+
+/* ===== TEAM SECTION ===== */
+.team-section {
+    background: var(--light);
+    padding: 100px 0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.member-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.member-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.member-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26, 26, 46, 0.9) 0%, transparent 50%);
+    opacity: 0;
+    transition: var(--transition);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.team-member:hover .member-overlay {
+    opacity: 1;
+}
+
+.team-member:hover .member-image img {
+    transform: scale(1.05);
+}
+
+.member-social {
+    display: flex;
+    gap: 15px;
+}
+
+.member-social a {
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.member-social a:hover {
+    background: var(--accent);
+    color: var(--white);
+}
+
+.member-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.member-info span {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 0;
+}
+
+.cta-content {
+    text-align: center;
+    color: var(--white);
+}
+
+.cta-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-outline-white {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.btn-outline-white:hover {
+    background: var(--white);
+    color: var(--primary);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
     }
+
+    .story-img-secondary {
+        right: 20px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .values-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-stats {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 </style>
 @endsection
