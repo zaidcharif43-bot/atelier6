@@ -27,7 +27,7 @@
                     <ul class="category-list">
                         <li><a href="{{ route('produits.index') }}" class="{{ !request('category') ? 'active' : '' }}">
                             <span>Tous les produits</span>
-                            <span class="count">{{ count($products) }}</span>
+                            <span class="count">{{ $products->total() }}</span>
                         </a></li>
                         @foreach($categories as $cat)
                         <li><a href="{{ route('produits.index', ['category' => $cat['slug']]) }}" class="{{ request('category') == $cat['slug'] ? 'active' : '' }}">
@@ -76,7 +76,7 @@
             <div class="products-main">
                 <div class="products-toolbar">
                     <div class="results-count">
-                        <span>{{ count($products) }} produit(s) trouvé(s)</span>
+                        <span>{{ $products->total() }} produit(s) trouvé(s)</span>
                     </div>
                     <div class="toolbar-right">
                         <div class="sort-select">
@@ -98,11 +98,11 @@
                     @forelse($products as $product)
                     <article class="product-card">
                         <div class="product-image">
-                            <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}">
+                            <img src="{{ $product->image }}" alt="{{ $product->name }}">
                             <div class="product-overlay"></div>
-                            @if($product['new'])
+                            @if($product->new)
                             <span class="product-badge badge-new">Nouveau</span>
-                            @elseif($product['sale'])
+                            @elseif($product->sale)
                             <span class="product-badge badge-sale">Promo</span>
                             @endif
                             <div class="product-actions">
@@ -112,21 +112,21 @@
                             </div>
                         </div>
                         <div class="product-info">
-                            <span class="product-category">{{ ucfirst($product['category']) }}</span>
+                            <span class="product-category">{{ ucfirst($product->categorie) }}</span>
                             <h3 class="product-name">
-                                <a href="{{ route('produits.show', $product['id']) }}">{{ $product['name'] }}</a>
+                                <a href="{{ route('produits.show', $product->id) }}">{{ $product->name }}</a>
                             </h3>
                             <div class="product-price">
-                                <span class="price-current">{{ number_format($product['price'], 2) }}€</span>
-                                @if($product['old_price'])
-                                <span class="price-old">{{ number_format($product['old_price'], 2) }}€</span>
+                                <span class="price-current">{{ number_format($product->price, 2) }}€</span>
+                                @if($product->old_price)
+                                <span class="price-old">{{ number_format($product->old_price, 2) }}€</span>
                                 @endif
                             </div>
                             <div class="product-rating">
                                 @for($i = 1; $i <= 5; $i++)
-                                    <i class="fas fa-star{{ $i <= floor($product['rating']) ? '' : '-half-alt' }}"></i>
+                                    <i class="fas fa-star{{ $i <= floor($product->rating) ? '' : '-half-alt' }}"></i>
                                 @endfor
-                                <span>({{ $product['reviews'] }})</span>
+                                <span>({{ $product->reviews }})</span>
                             </div>
                         </div>
                     </article>
@@ -138,6 +138,11 @@
                         <a href="{{ route('produits.index') }}" class="btn btn-primary">Voir tous les produits</a>
                     </div>
                     @endforelse
+                </div>
+                
+                <!-- Pagination Links -->
+                <div class="pagination-wrapper" style="margin-top: 40px; display: flex; justify-content: center;">
+                    {{ $products->withQueryString()->links() }}
                 </div>
             </div>
         </div>
@@ -426,6 +431,88 @@
 @media (max-width: 576px) {
     .products-main .products-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ===== PAGINATION STYLES ===== */
+.pagination-wrapper {
+    margin-top: 50px !important;
+}
+
+.pagination-wrapper nav {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-wrapper .pagination {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-wrapper .page-item .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    height: 45px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.pagination-wrapper .page-item .page-link:hover {
+    background: var(--dark);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.pagination-wrapper .page-item.active .page-link {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: var(--white);
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+}
+
+.pagination-wrapper .page-item.disabled .page-link {
+    background: var(--gray-light);
+    color: var(--gray);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.pagination-wrapper .page-item.disabled .page-link:hover {
+    transform: none;
+    background: var(--gray-light);
+    color: var(--gray);
+}
+
+/* Texte "Showing X to Y of Z results" */
+.pagination-wrapper nav > div:first-child {
+    display: none;
+}
+
+.pagination-wrapper nav > div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 576px) {
+    .pagination-wrapper .page-item .page-link {
+        min-width: 38px;
+        height: 38px;
+        padding: 0 10px;
+        font-size: 0.85rem;
     }
 }
 </style>

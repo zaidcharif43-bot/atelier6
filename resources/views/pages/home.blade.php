@@ -70,11 +70,11 @@
             @foreach($featuredProducts as $product)
             <article class="product-card">
                 <div class="product-image">
-                    <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}">
+                    <img src="{{ $product->image }}" alt="{{ $product->name }}">
                     <div class="product-overlay"></div>
-                    @if($product['new'])
+                    @if($product->new)
                     <span class="product-badge badge-new">Nouveau</span>
-                    @elseif($product['sale'])
+                    @elseif($product->sale)
                     <span class="product-badge badge-sale">Promo</span>
                     @endif
                     <div class="product-actions">
@@ -84,21 +84,21 @@
                     </div>
                 </div>
                 <div class="product-info">
-                    <span class="product-category">{{ ucfirst($product['category']) }}</span>
+                    <span class="product-category">{{ ucfirst($product->categorie) }}</span>
                     <h3 class="product-name">
-                        <a href="{{ route('produits.show', $product['id']) }}">{{ $product['name'] }}</a>
+                        <a href="{{ route('produits.show', $product->id) }}">{{ $product->name }}</a>
                     </h3>
                     <div class="product-price">
-                        <span class="price-current">{{ number_format($product['price'], 2) }}€</span>
-                        @if($product['old_price'])
-                        <span class="price-old">{{ number_format($product['old_price'], 2) }}€</span>
+                        <span class="price-current">{{ number_format($product->price, 2) }}€</span>
+                        @if($product->old_price)
+                        <span class="price-old">{{ number_format($product->old_price, 2) }}€</span>
                         @endif
                     </div>
                     <div class="product-rating">
                         @for($i = 1; $i <= 5; $i++)
-                            <i class="fas fa-star{{ $i <= floor($product['rating']) ? '' : '-half-alt' }}"></i>
+                            <i class="fas fa-star{{ $i <= floor($product->rating) ? '' : '-half-alt' }}"></i>
                         @endfor
-                        <span>({{ $product['reviews'] }})</span>
+                        <span>({{ $product->reviews }})</span>
                     </div>
                 </div>
             </article>

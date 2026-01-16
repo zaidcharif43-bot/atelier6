@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $product['name'] . ' - ClothesZC')
+@section('title', $product->name . ' - ClothesZC')
 
 @section('content')
 <!-- Page Header -->
@@ -11,7 +11,7 @@
             <span>/</span>
             <a href="{{ route('produits.index') }}">Produits</a>
             <span>/</span>
-            <span>{{ $product['name'] }}</span>
+            <span>{{ $product->name }}</span>
         </nav>
     </div>
 </section>
@@ -23,55 +23,55 @@
             <!-- Product Images -->
             <div class="product-gallery">
                 <div class="main-image">
-                    <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" id="mainImage">
-                    @if($product['new'])
+                    <img src="{{ $product->image }}" alt="{{ $product->name }}" id="mainImage">
+                    @if($product->new)
                     <span class="product-badge badge-new">Nouveau</span>
-                    @elseif($product['sale'])
-                    <span class="product-badge badge-sale">-{{ round((1 - $product['price']/$product['old_price']) * 100) }}%</span>
+                    @elseif($product->sale && $product->old_price)
+                    <span class="product-badge badge-sale">-{{ round((1 - $product->price/$product->old_price) * 100) }}%</span>
                     @endif
                 </div>
                 <div class="thumbnail-images">
                     <div class="thumbnail active" onclick="changeImage(this)">
-                        <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}">
+                        <img src="{{ $product->image }}" alt="{{ $product->name }}">
                     </div>
                     <div class="thumbnail" onclick="changeImage(this)">
-                        <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}">
+                        <img src="{{ $product->image }}" alt="{{ $product->name }}">
                     </div>
                     <div class="thumbnail" onclick="changeImage(this)">
-                        <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}">
+                        <img src="{{ $product->image }}" alt="{{ $product->name }}">
                     </div>
                 </div>
             </div>
 
             <!-- Product Info -->
             <div class="product-info-detail">
-                <span class="product-category-tag">{{ ucfirst($product['category']) }}</span>
-                <h1 class="product-title">{{ $product['name'] }}</h1>
+                <span class="product-category-tag">{{ ucfirst($product->categorie) }}</span>
+                <h1 class="product-title">{{ $product->name }}</h1>
                 
                 <div class="product-rating-detail">
                     <div class="stars">
                         @for($i = 1; $i <= 5; $i++)
-                            <i class="fas fa-star{{ $i <= floor($product['rating']) ? '' : ($i - 0.5 <= $product['rating'] ? '-half-alt' : '') }}"></i>
+                            <i class="fas fa-star{{ $i <= floor($product->rating) ? '' : ($i - 0.5 <= $product->rating ? '-half-alt' : '') }}"></i>
                         @endfor
                     </div>
-                    <span class="rating-text">{{ $product['rating'] }}/5</span>
-                    <span class="reviews-count">({{ $product['reviews'] }} avis)</span>
+                    <span class="rating-text">{{ $product->rating }}/5</span>
+                    <span class="reviews-count">({{ $product->reviews }} avis)</span>
                 </div>
 
                 <div class="product-price-detail">
-                    <span class="current-price">{{ number_format($product['price'], 2) }}€</span>
-                    @if($product['old_price'])
-                    <span class="old-price">{{ number_format($product['old_price'], 2) }}€</span>
-                    <span class="discount-badge">-{{ round((1 - $product['price']/$product['old_price']) * 100) }}%</span>
+                    <span class="current-price">{{ number_format($product->price, 2) }}€</span>
+                    @if($product->old_price)
+                    <span class="old-price">{{ number_format($product->old_price, 2) }}€</span>
+                    <span class="discount-badge">-{{ round((1 - $product->price/$product->old_price) * 100) }}%</span>
                     @endif
                 </div>
 
-                <p class="product-description">{{ $product['description'] }}</p>
+                <p class="product-description">{{ $product->description }}</p>
 
                 <div class="product-features">
                     <h3>Caractéristiques</h3>
                     <ul>
-                        @foreach($product['features'] as $feature)
+                        @foreach($product->features as $feature)
                         <li><i class="fas fa-check"></i> {{ $feature }}</li>
                         @endforeach
                     </ul>
@@ -102,7 +102,7 @@
 
                 <div class="stock-info">
                     <i class="fas fa-check-circle"></i>
-                    <span>En stock ({{ $product['stock'] }} disponibles)</span>
+                    <span>En stock ({{ $product->stock }} disponibles)</span>
                 </div>
 
                 <div class="product-actions-detail">
@@ -145,11 +145,11 @@
             @foreach($relatedProducts as $related)
             <article class="product-card">
                 <div class="product-image">
-                    <img src="{{ $related['image'] }}" alt="{{ $related['name'] }}">
+                    <img src="{{ $related->image }}" alt="{{ $related->name }}">
                     <div class="product-overlay"></div>
-                    @if($related['new'])
+                    @if($related->new)
                     <span class="product-badge badge-new">Nouveau</span>
-                    @elseif($related['sale'])
+                    @elseif($related->sale)
                     <span class="product-badge badge-sale">Promo</span>
                     @endif
                     <div class="product-actions">
@@ -159,14 +159,14 @@
                     </div>
                 </div>
                 <div class="product-info">
-                    <span class="product-category">{{ ucfirst($related['category']) }}</span>
+                    <span class="product-category">{{ ucfirst($related->categorie) }}</span>
                     <h3 class="product-name">
-                        <a href="{{ route('produits.show', $related['id']) }}">{{ $related['name'] }}</a>
+                        <a href="{{ route('produits.show', $related->id) }}">{{ $related->name }}</a>
                     </h3>
                     <div class="product-price">
-                        <span class="price-current">{{ number_format($related['price'], 2) }}€</span>
-                        @if($related['old_price'])
-                        <span class="price-old">{{ number_format($related['old_price'], 2) }}€</span>
+                        <span class="price-current">{{ number_format($related->price, 2) }}€</span>
+                        @if($related->old_price)
+                        <span class="price-old">{{ number_format($related->old_price, 2) }}€</span>
                         @endif
                     </div>
                 </div>

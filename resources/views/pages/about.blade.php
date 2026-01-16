@@ -28,7 +28,7 @@
                     <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&q=80" alt="Mode">
                 </div>
                 <div class="story-badge">
-                    <span class="badge-number">2024</span>
+                    <span class="badge-number">2026</span>
                     <span class="badge-text">Depuis</span>
                 </div>
             </div>
